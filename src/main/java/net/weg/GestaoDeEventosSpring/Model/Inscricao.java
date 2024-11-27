@@ -1,7 +1,9 @@
-package net.weg.GestaoDeEventosSpring;
+package net.weg.GestaoDeEventosSpring.Model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import net.weg.GestaoDeEventosSpring.Model.Evento;
+import net.weg.GestaoDeEventosSpring.Model.Participante;
 
 @Data
 @Entity

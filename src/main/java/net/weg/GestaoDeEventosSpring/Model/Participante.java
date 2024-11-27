@@ -1,4 +1,4 @@
-package net.weg.GestaoDeEventosSpring;
+package net.weg.GestaoDeEventosSpring.Model;
 
 import jakarta.persistence.*;
 import lombok.Data;

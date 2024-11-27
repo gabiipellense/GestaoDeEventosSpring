@@ -1,13 +1,15 @@
-package net.weg.GestaoDeEventosSpring;
+package net.weg.GestaoDeEventosSpring.Controller;
 
 import lombok.AllArgsConstructor;
+import net.weg.GestaoDeEventosSpring.Model.Evento;
+import net.weg.GestaoDeEventosSpring.Repository.EventoRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/evento")
+@RequestMapping("/eventos")
 @AllArgsConstructor
 public class EventoController {
     private EventoRepository eventoRepository;
