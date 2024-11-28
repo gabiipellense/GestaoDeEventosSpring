@@ -14,6 +14,7 @@ import java.util.Optional;
 public class ParticipanteService {
 
     private ParticipanteRepository repository;
+    private InscricaoService inscricaoService;
     public Participante cadastro(Participante participante) {
        return repository.save(participante);
     }
@@ -30,6 +31,7 @@ public class ParticipanteService {
     }
 
     public void remover(Integer id) {
+        inscricaoService.removerPorIdParticipante(id);
         repository.deleteById(id);
     }
 
@@ -41,7 +43,17 @@ public class ParticipanteService {
         }
         throw new NoSuchElementException();
     }
+    public Participante buscar (String  email) {
+        Optional<Participante> optional = repository.findByEmail(email);
+
+        if(optional.isPresent()){
+            return optional.get();
+        }
+        throw new NoSuchElementException();
+    }
     public List<Participante> buscar() {
         return repository.findAll();
     }
+
+
 }
