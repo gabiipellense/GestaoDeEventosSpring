@@ -21,14 +21,14 @@ public class ParticipanteController {
     public ResponseEntity<Participante> cadastroParticipante(@RequestBody Participante participante) {
         participante = participanteService.cadastro(participante) ;
         return new ResponseEntity<>(participante , HttpStatus.CREATED) ;
-    }
+    }//okay
     @PutMapping("/{id}")
     public ResponseEntity<Participante> edicaoParticipante (@PathVariable Integer id , @RequestBody Participante participante) {
         participante = participanteService.editar(id, participante);
         return new ResponseEntity<>(participante, HttpStatus.OK);
-    }
+    }//okay
     @PatchMapping
-    public ResponseEntity<Participante> alterarEmail (@RequestParam Integer id, String email) {
+    public ResponseEntity<Participante> alterarEmail (@RequestParam Integer id, @RequestParam String email) {
         try {
             Participante participante = participanteService.editarEmail(id, email) ;
             return new ResponseEntity<>(participante, HttpStatus.OK);
@@ -36,12 +36,12 @@ public class ParticipanteController {
         catch (NoSuchElementException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-    }
+    }//okay
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> removerParticipante (@PathVariable Integer id) {
         participanteService.remover(id);
         return new ResponseEntity<>(HttpStatus.OK) ;
-    }
+    }//okay
     @GetMapping("/{id}")
     public ResponseEntity<Participante> buscarParticipante(@PathVariable Integer id) {
         try {
@@ -51,7 +51,7 @@ public class ParticipanteController {
         catch (NoSuchElementException e) {
             return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-    }
+    }//okay
     @GetMapping("/email")
     public ResponseEntity<Participante> buscarParticipante(@RequestParam String email) {
         try {
@@ -61,7 +61,7 @@ public class ParticipanteController {
         catch (NoSuchElementException e) {
             return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-    }
+    }//okay
     @GetMapping
     public ResponseEntity<List<Participante>> buscarParticipantes() {
         List<Participante> participantes = participanteService.buscar() ;
@@ -69,5 +69,5 @@ public class ParticipanteController {
             return new ResponseEntity<>(participantes,HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
+    }//okay
 }
